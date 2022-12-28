@@ -6,6 +6,13 @@ const listCartAdd= document.querySelector("#table-cart tbody");
 const cards = document.querySelector("#list-Courses");
 let shoppingCart = [];
 
+// local storage 
+
+document.addEventListener("DOMContentLoaded",() =>{
+  shoppingCart = JSON.parse(localStorage.getItem("products")) || [];
+  builcart();
+})
+
 // abrir el modal del menu 
 shopIcon.addEventListener("click",()=>{
   shopCart.classList.toggle("show")
@@ -79,8 +86,15 @@ function builcart(){
     listCartAdd.appendChild(rowCart);
     
   });
+  sincronizar()
   
 }
+// sincronizar con local storage
+
+function sincronizar(){
+  localStorage.setItem("products",JSON.stringify(shoppingCart));
+}
+
 
 //borrar listado completo
 
