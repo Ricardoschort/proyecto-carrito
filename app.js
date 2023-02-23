@@ -101,6 +101,7 @@ function sincronizar(){
 function clearCart(){
   while (listCartAdd.firstChild) {
     listCartAdd.removeChild(listCartAdd.firstChild);
+
   }
 }
 
@@ -123,6 +124,7 @@ function deleteProduct(e){
 function deleteAll(e){
   if ( e.target.classList.contains("empty-cart--button")){
     clearCart();
+    shoppingCart = []
   }
 }
 
